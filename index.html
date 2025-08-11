@@ -254,7 +254,10 @@
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email: email }),
+            body: JSON.stringify({ 
+              id:1,  
+              json: { email }
+            }),
           });
 
           const result = await response.json();
