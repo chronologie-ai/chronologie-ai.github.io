@@ -249,7 +249,7 @@
       const minDisplayTime = new Promise(resolve => setTimeout(resolve, 500));
       const request = (async () => {
         try {
-          const response = await fetch('https://app.chronologie.ai/trpc/waitlist.add', {
+          const response = await fetch('https://chronology.azurewebsites.net/trpc/waitlist.add', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
