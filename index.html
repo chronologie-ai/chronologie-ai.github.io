@@ -262,7 +262,7 @@
 
           const result = await response.json();
 
-          if (response.ok) {
+          if (response.ok && result.result?.data?.json?.success) {
             return { success: true, message: 'Thanks for joining the waitlist!' };
           } else {
             const errorMessage = result.error?.json?.message || 'An error occurred.';
