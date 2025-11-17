@@ -3,228 +3,363 @@
 <head>
   <link rel="icon" href="icon.png">
 
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RRLBDP3JD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-5RRLBDP3JD');
   </script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Chronologies - Forecasting & Predictions" />
-  <title>Chronologies | Forecasting & Predictions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+  <meta name="description" content="Chronologies - Foundation Model Lab" />
+  <title>Chronologies | Foundation Model Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     body {
       margin: 0;
-      font-family: monospace;
-      background-color: #fff;
-      color: #000;
-      line-height: 1.6;
+      width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', monospace;
+      background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
     }
-    header {
-      background-color: #fff;
-      color: #000;
-      padding: 1rem 2rem;
-      text-align: center;
-      border-bottom: 1px solid #000;
+
+    /* Animated background effect */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(161, 44, 64, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(161, 44, 64, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(161, 44, 64, 0.03) 0%, transparent 50%);
+      animation: pulse 15s ease-in-out infinite;
+      pointer-events: none;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-family: 'Adamina', serif;
-      color: #a12c40;
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
     }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-    main {
-      max-width: 1000px;
-      margin: auto;
+
+    .container {
+      max-width: 900px;
+      width: 100%;
       padding: 2rem;
-    }
-    .hero {
       text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-family: 'Adamina', serif;
+      font-size: 3.5rem;
+      color: #a12c40;
       margin-bottom: 3rem;
+      letter-spacing: 2px;
+      animation: fadeInDown 1s ease-out;
     }
-    .hero h2 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .hero p {
+
+    .tagline {
       font-size: 1.1rem;
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.85;
+      color: #999;
+      margin-bottom: 4rem;
+      letter-spacing: 0.5px;
+      animation: fadeIn 1.5s ease-out;
     }
-    a {
-      color: #000;
-      text-decoration: underline;
+
+    .hero-text {
+      margin-bottom: 2rem;
+      animation: fadeIn 2s ease-out;
     }
-    a:hover {
-      color: #555;
-    }
-    ul{
-      list-style-type: none;
-    }
-    ul p {
-      font-size: large;
-    }
-    .features {
-      margin-top: 3rem;
-    }
-    .feature {
+
+    .hero-text h1 {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.2;
       margin-bottom: 1.5rem;
+      color: #525252;
+      text-shadow: 0 0 60px rgba(161, 44, 64, 0.12), 0 0 30px rgba(161, 44, 64, 0.08);
+      letter-spacing: -0.5px;
     }
-    .feature:hover {
+
+    .hero-text .subtitle {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1.35rem;
+      color: #5a5a5a;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      letter-spacing: 0.2px;
     }
-    .feature h3 {
-      margin-top: 0;
+
+    .coming-soon {
+      font-size: 1rem;
       color: #a12c40;
-      font-weight: 900;
-      font-family: 'Adamina', serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 4rem;
+      font-weight: 500;
+      animation: fadeIn 2.5s ease-out;
     }
-    .feature p {
-      text-align: left;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
-    .cta {
-      text-align: center;
+
+    .signup-section {
       margin-top: 4rem;
+      padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+      border: 1px solid rgba(161, 44, 64, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 2s ease-out;
     }
-    .cta a {
-      border: 1px solid #000;
-      background: #fff;
-      color: #000;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .cta a:hover {
-      background: #000;
-      color: #fff;
-    }
-    .signup {
-      margin-top: 4rem;
-      padding: 2rem;
-      border: 1px solid #000;
-      border-radius: 4px;
-      background: #fff;
-      text-align: center;
-    }
-    .signup h3 {
+
+    .signup-section h3 {
+      font-size: 1.3rem;
       margin-bottom: 1rem;
-      color: #a12c40;
-      font-family: 'Adamina', serif;
+      color: #1a1a1a;
+      font-weight: 400;
     }
-    .signup form {
+
+    .signup-section p {
+      color: #555;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .signup-section p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .signup-form {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
-    .signup input[type="email"] {
-      padding: 0.8rem;
+
+    .signup-form input[type="email"] {
+      padding: 1rem 1.5rem;
       width: 100%;
-      max-width: 400px;
-      border: 1px solid #000;
-      border-radius: 4px;
+      max-width: 450px;
+      border: 1px solid rgba(161, 44, 64, 0.4);
+      border-radius: 6px;
       font-size: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      color: #1a1a1a;
+      transition: all 0.3s ease;
     }
-    .signup button {
-      padding: 0.8rem 1.5rem;
-      background: #fff;
-      color: #000;
-      border: 1px solid #000;
-      border-radius: 4px;
+
+    .signup-form input[type="email"]:focus {
+      outline: none;
+      border-color: #a12c40;
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .signup-form input[type="email"]::placeholder {
+      color: #999;
+    }
+
+    .signup-form button {
+      padding: 1rem 3rem;
+      background: #a12c40;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.5px;
     }
-    .signup button:hover {
-      background: #000;
-      color: #fff;
+
+    .signup-form button:hover {
+      background: #c13952;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(161, 44, 64, 0.3);
     }
-    footer {
-      margin-top: 4rem;
-      padding: 1rem;
-      text-align: center;
-      border-top: 1px solid #000;
-      font-size: 0.9rem;
-      color: #000;
+
+    .signup-form button:active {
+      transform: translateY(0);
     }
+
+    #response-message {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      min-height: 20px;
+    }
+
     .spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1);
+      border: 3px solid rgba(161, 44, 64, 0.15);
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      border-left-color: #000;
+      border-left-color: #a12c40;
       animation: spin 1s ease infinite;
-      display: none; /* Initially hidden */
+      display: none;
       margin: 1rem auto 0;
     }
 
     @keyframes spin {
-      0% {
-        transform: rotate(0deg);
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 0.75rem;
+        max-width: 100vw;
+        overflow-x: hidden;
       }
-      100% {
-        transform: rotate(360deg);
+
+      .logo {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        letter-spacing: 0px;
+        max-width: 100%;
+      }
+
+      .hero-text {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-text h1 {
+        font-size: 1.75rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        letter-spacing: 0px;
+        max-width: 100%;
+      }
+
+      .hero-text .subtitle {
+        font-size: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 0 0.5rem;
+        letter-spacing: 0px;
+        max-width: 100%;
+      }
+
+      .coming-soon {
+        margin-bottom: 3rem;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        max-width: 100%;
+      }
+
+      .signup-section {
+        padding: 1.5rem 0.75rem 1rem 0.75rem;
+        margin-top: 2rem;
+        max-width: 100%;
+      }
+
+      .signup-section h3 {
+        font-size: 1.1rem;
+      }
+
+      .signup-section p {
+        font-size: 0.9rem;
+      }
+
+      .signup-form input[type="email"] {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Chronologies</h1>
-    <p>AI Forecasting and Predictions</p>
-    <p><a href="https://app.chronologies.ai">View Demo →</a></p>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h2>Turning Current Events into Actionable Decisions</h2>
-      <p>Chronologies transforms questions -- anything from macroeconomics, geopolitical events, to legislative outcomes -- into calibrated probabilities. Empowering quants, researchers, risk managers, and strategists to make decisions with confidence.</p>
-    </section>
-
-    <ul class="features">
-      <li class="feature">
-        <h3>Calibrated Probabilities</h3>
-        <p>Chronologies converts qualitative queries into statistically calibrated forecasts, bridging qualitative and quantitative analysis at scale.</p>
-      </li>
-      <li class="feature">
-        <h3>Event Coverage</h3>
-        <p>Our data covers a broad range including global news headlines, industry reports, and social media chatter.</p>
-      </li>
-      <li class="feature">
-        <h3>Seamless Integration</h3>
-        <p>Data delivery via API or CSV: plug our insights directly into your trading, risk, or research infrastructure.</p>
-      </li>
-      <!-- <li class="feature">
-        <h3>For Quants, By Quants</h3>
-        <p>Designed for top-tier finance professionals who demand reliability, transparency, and cutting-edge analytics.</p>
-      </li> -->
-    </ul>
-
-    <div class="cta">
-      <a href="https://app.chronologies.ai">Explore the Demo</a>
+  <div class="container">
+    <div class="logo">Chronologies.ai</div>
+    <!-- <div class="tagline">Foundation Model Lab</div> -->
+    
+    <div class="hero-text">
+      <h1>A New Frontier</h1>
+      <p class="subtitle">Building a new type of foundation model.<br>Adaptive AI for tomorrow's challenges.</p>
     </div>
 
-  <section class="signup">
-    <h3>Sign Up for Early Access</h3>
-    <form id="waitlist-form">
-      <input type="email" id="email-input" placeholder="Your Email Address" required />
-      <button type="submit">Join the Waitlist</button>
-    </form>
-    <p id="response-message"></p>
-    <div class="spinner" id="spinner"></div>
-  </section>
+    <div class="coming-soon">Coming Soon</div>
+
+    <section class="signup-section">
+      <h3>Be Part of the Journey</h3>
+      <p>Join our waitlist for early access and exclusive updates</p>
+      <form class="signup-form" id="waitlist-form">
+        <input type="email" id="email-input" placeholder="your@email.com" required />
+        <button type="submit">Notify Me</button>
+      </form>
+      <p id="response-message"></p>
+      <div class="spinner" id="spinner"></div>
+    </section>
+  </div>
+<!-- 
+  <footer>
+    &copy; 2025 Chronologies. All rights reserved.
+  </footer> -->
 
   <script>
     const waitlistForm = document.getElementById('waitlist-form');
@@ -252,7 +387,7 @@
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({ 
-              id:1,  
+              id: 1,  
               json: { email }
             }),
           });
@@ -260,14 +395,14 @@
           const result = await response.json();
 
           if (response.ok && result.result?.data?.json?.success) {
-            return { success: true, message: 'Thanks for joining the waitlist!' };
+            return { success: true, message: 'Thanks for joining! We\'ll be in touch soon.' };
           } else {
             const errorMessage = result.error?.json?.message || 'An error occurred.';
             return { success: false, message: `Failed to join: ${errorMessage}` };
           }
         } catch (error) {
           console.error('Submission error:', error);
-          return { success: false, message: 'An error occurred while submitting. Please try again.' };
+          return { success: false, message: 'An error occurred. Please try again.' };
         }
       })();
 
@@ -278,7 +413,7 @@
 
       // Display result message
       responseMessage.textContent = result.message;
-      responseMessage.style.color = result.success ? 'green' : 'red';
+      responseMessage.style.color = result.success ? '#16a34a' : '#f87171';
       responseMessage.style.display = 'block';
 
       if (!result.success) {
@@ -294,13 +429,5 @@
       }
     });
   </script>
-
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Chronologies. All rights reserved.</p>
-    <p>The information provided by Chronologies is soley for informational, entertainment, and research purposes only and should not be considered financial advice. Forecasts generated by our AI systems may contain errors, inaccuracies, or faulty reasoning and should always be independently verified. You are solely responsible for any decisions made based on this information. This product is not intended for gambling or unlawful use.</p>
-    <p style="font-size: x-small;">Chronologies provides its services “as is” and “as available,” without warranties of any kind, whether express or implied, including but not limited to accuracy, completeness, merchantability, fitness for a particular purpose, or non-infringement. Chronologies is not a registered investment adviser, broker, or financial institution, and nothing on this site constitutes financial, investment, legal, or tax advice. Users assume full responsibility for their actions, and any reliance on the information provided is at their own risk. Chronologies disclaims liability for any loss or damages of any kind, including direct, indirect, incidental, or consequential losses, arising from use of the service. This service is not intended for gambling or unlawful purposes.</p>
-  </footer>
 </body>
 </html>
